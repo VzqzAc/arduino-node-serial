@@ -1,12 +1,9 @@
-const http = require('http');
-const port = 3000;
+const express = require('express');
+const path = require('path');
+let app = express();
 
-let server = http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write('<h1><button type="button">Hello!</button></h1>');
-  res.end();
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
-server.listen(port, () => {
-  console.log('Server listen to port: ' + port);
+app.listen(3000, () => {
+  console.log('Listening at port 3000');
 })

@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/VzqzAc/arduino-node-serial/issues"
   },
-  "homepage": "https://github.com/VzqzAc/arduino-node-serial#readme"
+  "homepage": "https://github.com/VzqzAc/arduino-node-serial#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "serialport": "^4.0.3",
+    "socket.io": "^1.5.1"
+  }
 }
