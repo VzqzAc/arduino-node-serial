@@ -4,9 +4,15 @@ let port = new SerialPort("COM3", {
   parser: SerialPort.parsers.readline("\n")
 });
 
-port.on('open', function() {
-  console.log('its open');
-  port.on('data', function(data) {
-    console.log(data.toString());
-  })
+port.on('data', function(data) {
+  console.log(data.toString());
 })
+
+module.exports = {
+  send: () => {
+          port.write('led', function(err) {
+            if(err) return err;
+            else return 'success';;
+          });
+        }
+}

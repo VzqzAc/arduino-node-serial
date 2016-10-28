@@ -1,12 +1,23 @@
+boolean led;
+String a;
+
 void setup() {
   Serial.begin(9600);
+  a = "";
+  digitalWrite(13, LOW);
+  led = false;
 }
 
 void loop() {
-  Serial.println("Hello world");
-  analogWrite(13, HIGH); // physical knowledge of working serial communication
-  delay(500);
-  analogWrite(13, LOW); // see above comment
-  delay(500);
-asdasddadssd
+  a = Serial.readString();
+  Serial.println(a);
+  if(a.equals("led")) {
+    digitalWrite(13, toggleLed());
+  }
+  delay(2);
+}
+
+boolean toggleLed() {
+  led = !led;
+  return led;
 }
